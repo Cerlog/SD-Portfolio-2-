@@ -3,54 +3,39 @@ package com.company;
 import java.util.ArrayList;
 
 public class Vertex implements Comparable<Vertex> {
-    private String cityName;              // city name
-    private Integer distance;             // distance
-    private Vertex predecessor;           // predecessor
-    private ArrayList<Edge> outerEdge;    //
+    private final String vertexName;             // name of the city/vertex
+    private Integer distance;                   // distance field - used in the Prims algorithm
+    private Vertex predecessor;                 // predecessor field - used in the Prims algorithm
+    private final ArrayList<Edge> outerEdge;    // stores the outer edges
 
-    public Vertex(String cityName) {
-        this.cityName = cityName;
-        this.outerEdge = new ArrayList<>();
+    public Vertex(String vertexName) {         // constructor
+        this.vertexName = vertexName;          // assingmets the name to Vertex
+        this.outerEdge = new ArrayList<>();    // addes the outer edges to the list
     }
 
     @Override                        // compareTo method for comparing the verticies
     public int compareTo(Vertex other) {
-        return this.distance.compareTo(other.distance)
+        return this.distance.compareTo(other.distance);
     }
 
+    public String getVertexName() {
+        return vertexName;
+    } // getter method for the vertex name
 
-    // generated getters and setters
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
 
     public Integer getDistance() {
         return distance;
+    }   // getter method for the vertex distance
+
+    public void setDistance(Integer distance) {        // setter method for the set distance
+        this.distance = distance;                      // used in prims algorithm
     }
 
-    public void setDistance(Integer distance) {
-        this.distance = distance;
-    }
-
-    public Vertex getPredecessor() {
-        return predecessor;
-    }
-
-    public void setPredecessor(Vertex predecessor) {
-        this.predecessor = predecessor;
-    }
-
-    public ArrayList<Edge> getOuterEdge() {
+    public ArrayList<Edge> getOuterEdge() {          // getter for getting outer edges
         return outerEdge;
     }
 
-    public void setOuterEdge(ArrayList<Edge> outerEdge) {
-        this.outerEdge = outerEdge;
+    public void setPredecessor(Vertex predecessor) {  //setter method for setting the predecessor
+        this.predecessor = predecessor;               // used in prims algorithm
     }
-
 }
