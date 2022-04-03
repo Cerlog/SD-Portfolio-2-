@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AdjacencyList {
 
-    private ArrayList<Vertex> listOfVerticies;              // stores the list of verticies
+    private final ArrayList<Vertex> listOfVerticies;       // stores the list of verticies
 
     public AdjacencyList() {
         this.listOfVerticies = new ArrayList<>();
@@ -19,8 +19,8 @@ public class AdjacencyList {
             System.out.println("Vertex is missing");
             return;
         }
-        Edge newEdgeFromTO = new Edge(fromVertex,toVertex,weight);                               // creates edge from vertex1 to other vertex2
-        Edge newEdgeToFrom = new Edge(toVertex,fromVertex,weight);                               // creates edge from vertex2 to vertex 1
+        Edge newEdgeFromTO = new Edge(fromVertex,toVertex,weight);       // creates edge from vertex1 to other vertex2
+        Edge newEdgeToFrom = new Edge(toVertex,fromVertex,weight);       // creates edge from vertex2 to vertex 1
     }
 
     public void printAdjacencyGraph () {                                                       // method for printing the graphs
@@ -32,7 +32,7 @@ public class AdjacencyList {
             }
         }
     }
-    public ArrayList<Vertex> getListOfVerticies() {
+    public ArrayList<Vertex> getListOfVerticies() {     // getter method for the list of verticies
         return listOfVerticies;
-    }                // getter method for te
+    }
 }
