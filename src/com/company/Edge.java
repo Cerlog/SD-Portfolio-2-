@@ -2,9 +2,9 @@ package com.company;
 
 public class Edge {
 
-    private Vertex fromVertex;
-    private Vertex toVertex;
-    private Integer weight;
+    private final Vertex fromVertex;     // edge going out from vertex1
+    private final Vertex toVertex;       // edge going to vertex1
+    private final Integer weight;        // cost of visiting vertex1
 
     public Edge(Vertex fromVertex, Vertex toVertex, Integer weight) {
         this.fromVertex = fromVertex;
@@ -13,29 +13,12 @@ public class Edge {
         fromVertex.getOuterEdge().add(this);
 
     }
-
-
-    public Vertex getFromVertex() {
-        return fromVertex;
-    }
-
-    public void setFromVertex(Vertex fromVertex) {
-        this.fromVertex = fromVertex;
-    }
-
     public Vertex getToVertex() {
         return toVertex;
-    }
-
-    public void setToVertex(Vertex toVertex) {
-        this.toVertex = toVertex;
-    }
-
+    } // getter for get incomming edge
+                                                     // to a vertex
     public Integer getWeight() {
         return weight;
-    }
+    }   // getter for getting the weight
 
-    public void setWeight(Integer weight) {
-        this.weight = weight;
-    }
 }
