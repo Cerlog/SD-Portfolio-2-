@@ -25,7 +25,7 @@ public class AdjacencyList {
 
     public void printAdjacencyGraph () {                                                       // method for printing the graphs
         for (int i = 0; i < listOfVerticies.size(); i++) {
-            System.out.println("Vertex " + listOfVerticies.get(i).getCityName() + " is connected to: ");
+            System.out.println("Vertex " + listOfVerticies.get(i).getVertexName() + " is connected to: ");
             Vertex currentVertex = getListOfVerticies().get(i);
             for (Edge e: currentVertex.getOuterEdge()) {
                 System.out.println("        " + e.getToVertex() + "     with weight: " + e.getWeight());

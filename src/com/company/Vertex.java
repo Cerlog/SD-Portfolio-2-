@@ -38,4 +38,15 @@ public class Vertex implements Comparable<Vertex> {
     public void setPredecessor(Vertex predecessor) {  //setter method for setting the predecessor
         this.predecessor = predecessor;               // used in prims algorithm
     }
+
+    public Vertex getPredecessor() {
+        return predecessor;
+    }
+
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "vertexName='" + vertexName + '\'' +
+                '}';
+    }
 }

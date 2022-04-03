@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MatrixGraph {
@@ -32,6 +33,46 @@ public class MatrixGraph {
                 if(EdgeMatrix[i][j])
                     System.out.println(j+" with weight: "+ WeightMatrix[i][j]);
             }
+        }
+    }
+
+    public void PrimsMST(){
+        Integer[] Dist =new Integer[EdgeMatrix.length];
+        Integer[] Prev = new Integer[EdgeMatrix.length];
+        boolean[] visited=new boolean[EdgeMatrix.length];
+        MinHeap<Pair> Q=new MinHeap<Pair>();
+        ArrayList<Pair> VertexPairs=new ArrayList<>();
+        Arrays.fill(Dist,Integer.MAX_VALUE);
+        Arrays.fill(Prev,-1);
+        Arrays.fill(visited,false);
+        if (EdgeMatrix.length>0){
+            Dist[0]=0;
+            Prev[0]=0;
+        }
+        for(int i = 0; i<EdgeMatrix.length;i++) {
+            Pair newPair= new Pair(Dist[i], i);
+            VertexPairs.add(newPair);
+            Q.Insert(newPair);
+        }
+        int MST=0;
+        while(!Q.isEmpty()){
+            Pair u=Q.extractMin();
+            for(int v=0; v< EdgeMatrix[u.index].length;v++)
+            {
+                if(EdgeMatrix[u.index][v] && WeightMatrix[u.index][v]<Dist[v]  && !visited[v]){
+                    Dist[v]= WeightMatrix[u.index][v];
+                    VertexPairs.get(v).setDist(WeightMatrix[u.index][v]);
+                    Prev[v]=u.index;
+                    int pos=Q.getPosition(VertexPairs.get(v));
+                    Q.decreasekey(pos);
+                }
+            }
+            visited[u.index]=true;
+            MST+=Dist[u.index];
+        }
+        System.out.println(" Minimum spanning tree distance: "+ MST);
+        for(int i=0;i< EdgeMatrix.length;i++){
+            System.out.println(" parent "+ Prev[i]+ " to "+ i + " Edge Weight "+Dist[i]);
         }
     }
 

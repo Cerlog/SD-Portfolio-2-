@@ -21,4 +21,13 @@ public class Edge {
         return weight;
     }   // getter for getting the weight
 
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "fromVertex=" + fromVertex + "-  -- to vertex    " + toVertex;
+    }
+
+    public Vertex getFromVertex() {
+        return fromVertex;
+    }
 }

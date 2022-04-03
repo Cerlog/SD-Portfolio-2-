@@ -1,10 +1,10 @@
+/*
 package com.company;
 
 import java.util.ArrayList;
 
 public class AdjacencyGraph {
-
-    private ArrayList<Vertex> Vertices;
+    ArrayList<Vertex> Vertices;
     public AdjacencyGraph(){
         Vertices=new ArrayList<Vertex>();
     }
@@ -41,19 +41,9 @@ public class AdjacencyGraph {
 
 
 
-    // getters and setters
-
-    public ArrayList<Vertex> getVertices() {
-        return Vertices;
-    }
-
-    public void setVertices(ArrayList<Vertex> vertices) {
-        Vertices = vertices;
-    }
 }
 
-/*
-class Vertex {  // made into different class
+class Vertex {
     String name;
     ArrayList<Edge> OutEdge;
     public Vertex(String name){
@@ -63,7 +53,7 @@ class Vertex {  // made into different class
 
 }
 
-class Edge{  // made into different class
+class Edge{
     Vertex from;
     Vertex to;
     Integer weight;
